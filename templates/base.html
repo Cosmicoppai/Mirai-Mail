@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="">
+<head>
+    <meta charset="UTF-8">
+    <title>未来Mail</title>
+    <link rel="shortcut icon" type="image/jpg" href={{url_for('static',path='/favicon.ico/')}} id="favicon">
+    <link href="{{url_for('static', path='base.css') }}" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/three@0.121.1/build/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.121.1/examples/js/controls/OrbitControls.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/simplex-noise/2.4.0/simplex-noise.min.js"></script>
+</head>
+<body>
+<div id="canvas_container">
+    <div class="login-box">
+  <h2>未来Mail</h2>
+  <form method="post" action="." enctype="multipart/form-data">
+    <div class="user-box">
+      <input type="Email" name="Email" required="required">
+      <label>Email</label>
+    </div>
+    <div class="user-box">
+      <input type="text" name="Msg" required="required">
+      <label>Message</label>
+   </div>
+      <div class="user-box">
+      <input type="date" name="Scheduled_date" required="required" min="" id="date">
+    </div>
+          <button type="submit" onclick="ok()">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      Send
+              </button>
+      {% if status_code %}
+      <div class="message" style="color:#03e9f4 ">
+      <h3>Email Sent Successfully</h3>
+      </div>
+      {% endif %}
+  </form>
+</div>
+</div>
+</body>
+<script src="{{url_for('static', path='script.js') }}" async ></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+        let today = new Date(),
+        day = today.getDate(),
+        month = today.getMonth()+1, //January is 0
+        year = today.getFullYear();
+            if(day<10){
+                    day='0'+day
+                }
+            if(month<10){
+                month='0'+month
+            }
+            today = year+'-'+month+'-'+day;
+
+       document.getElementById("date").setAttribute("min", today);
+
+       function ok(){
+       location.replace("localhost:9000")
+       }
+
+       $(document).ready(function(){
+   setTimeout(function(){
+      $(".message").fadeOut("slow")
+   }, 2000);
+});
+</script>
+</html>
