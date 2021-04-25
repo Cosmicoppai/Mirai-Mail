@@ -6,7 +6,7 @@
 # ドライフラワー
 from fastapi import Request, Form
 from pydantic import EmailStr
-from fastapi import FastAPI
+from fastapi import FastAPI, BackgroundTasks
 from fastapi.responses import HTMLResponse
 import starlette.status as status
 from fastapi.staticfiles import StaticFiles
@@ -42,7 +42,8 @@ async def read_root(request: Request):
 
 
 @app.post('/', status_code=200)
-async def get_mail(request: Request, Email: EmailStr = Form(...), Msg: str = Form(...), Scheduled_date: str = Form(...)):
+async def get_mail(request: Request, background_tasks: BackgroundTasks,
+                   Email: EmailStr = Form(...), Msg: str = Form(...), Scheduled_date: str = Form(...),):
 
     airtable_client = AirTable(base_id=_base_id,
                                api_key=_api_key,
@@ -52,8 +53,8 @@ async def get_mail(request: Request, Email: EmailStr = Form(...), Msg: str = For
     if Scheduled_date == today_date:
         subject = f"From {today_date} -_- "
 
-        send_mail(Email, Msg, subject)  # Trigger the mail function
+        background_tasks.add_task(send_mail, Email, Msg, subject)  # Trigger the mail function in background
         return templates.TemplateResponse("base.html", {'request': request, "status_code": status.HTTP_200_OK})
 
-    airtable_client.create_records({'Email':Email, 'Msg':Msg, 'Scheduled_on':Scheduled_date})
+    background_tasks.add_task(airtable_client.create_records, {'Email':Email, 'Msg':Msg, 'Scheduled_on':Scheduled_date})
     return templates.TemplateResponse("base.html", {'request': request, "status_code": status.HTTP_200_OK})
