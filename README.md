@@ -8,3 +8,10 @@ Send Emails to the Future... -_-
 http://miraimail.herokuapp.com/
 
 * Front-end made by:- https://codepen.io/isladjan/
+
+# Setup
+
+Activate Virtual Env in fastapi-airtable/Scripts/activate.bat.
+Create an .env file in your root directory and Enter the required fields mentioned in env.txt.
+This Project was developed with python 3.9, FastApi and AirTable
+
