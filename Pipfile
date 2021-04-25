@@ -11,6 +11,7 @@ aiofiles = "*"
 pydantic = {extras = ["email"], version = "*"}
 python-multipart = "*"
 click = "*"
+requests = "2.25.1"
 
 [dev-packages]
 
