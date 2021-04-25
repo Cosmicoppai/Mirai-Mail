@@ -4,13 +4,13 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-fastapi = "*"
-uvicorn = {extras = ["standard"], version = "*"}
-jinja2 = "*"
-aiofiles = "*"
-pydantic = {extras = ["email"], version = "*"}
-python-multipart = "*"
-click = "*"
+fastapi = "0.63.0"
+uvicorn = {extras = ["standard"], version = "0.13.4"}
+jinja2 = "2.11.3"
+aiofiles = "0.6.0"
+pydantic = {extras = ["email"], version = "1.8.1"}
+python-multipart = "0.0.5"
+click = "7.1.2"
 requests = "2.25.1"
 
 [dev-packages]
