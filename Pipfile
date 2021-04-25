@@ -5,7 +5,6 @@ name = "pypi"
 
 [packages]
 fastapi = "*"
-airtable = "*"
 uvicorn = {extras = ["standard"], version = "*"}
 jinja2 = "*"
 aiofiles = "*"
