@@ -50,9 +50,9 @@ async def get_mail(request: Request, Email: EmailStr = Form(...), Msg: str = For
 
     today_date = str(datetime.today()).split(" ")[0]
     if Scheduled_date == today_date:
-        mirai = {'Email':Email, 'Msg':Msg, 'subject':f"From {today_date} -_- "}  # data retrieved from the form & a trash subject
+        subject = f"From {today_date} -_- "
 
-        send_mail(mirai['Email'], mirai['Msg'], mirai['subject'])  # Trigger the mail function
+        send_mail(Email, Msg, subject)  # Trigger the mail function
         return templates.TemplateResponse("base.html", {'request': request, "status_code": status.HTTP_200_OK})
 
     airtable_client.create_records({'Email':Email, 'Msg':Msg, 'Scheduled_on':Scheduled_date})
