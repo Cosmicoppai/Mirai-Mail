@@ -1,8 +1,9 @@
-"""Fast Api Learning Project.
-Followed by Air table.
+"""
+未来Mail
 """
 
 # いつかヒロになりたい
+# ドライフラワー
 from fastapi import Request, Form
 from pydantic import BaseModel, EmailStr
 from typing import Optional
@@ -23,11 +24,6 @@ app = FastAPI()  # declared the name of the app
 
 app.mount("/static", StaticFiles(directory='static'), name='static')  # staticfiles location
 templates = Jinja2Templates(directory='templates')  # name of the 3rd party template
-
-
-database = OrderedDict()  # Database in the OrderedDict Format
-database['kanakchaudhari12@gmail.com'] = [{'id': 0, 'date': "22-04-2021", 'msg': "Hajime no message"}]  # Test + admin-data
-# universal_id = 1
 
 
 class Mirai(BaseModel):
@@ -89,7 +85,7 @@ async def get_mail(request: Request, Email: str = Form(...), Msg: str = Form(...
         mirai = Mirai(Email=Email, Msg=Msg, Scheduled_date=Scheduled_date)
         mirai = mirai.dict()
 
-        database[mirai['Email']] = [mirai, ]  # else save the whole data in OrderedDict in list format
+        # database[mirai['Email']] = [mirai, ]  # else save the whole data in OrderedDict in list format
         send_mail(mirai['Email'], mirai['Msg'], mirai['subject'])  # Trigger the mail function
         return templates.TemplateResponse("base.html", {'request': request, "status_code": status.HTTP_200_OK})
 
