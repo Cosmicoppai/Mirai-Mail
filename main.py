@@ -50,6 +50,7 @@ async def get_mail(request: Request, background_tasks: BackgroundTasks,
                                table_name=_table_name)
     print(_base_id, _api_key,_table_name)
 
+
     today_date = str(datetime.today()).split(" ")[0]
     if Scheduled_date == today_date:
         subject = f"From {today_date} -_- "

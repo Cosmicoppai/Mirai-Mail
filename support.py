@@ -200,4 +200,5 @@ def send_mail(receiver_mail, _text, subject):  # used to send the email
         message.attach(part2)
 
         print(mail_address, password)
+
         smtp.send_message(message)
