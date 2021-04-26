@@ -170,7 +170,7 @@ def send_mail(receiver_mail, _text, subject):  # used to send the email
       <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:'Lobster Two',cursive;" align="left">
         
 <div align="center">
-    <a href="#" target="_blank" style="box-sizing: border-box;display: inline-block;font-family:'Lobster Two',cursive;text-decoration: none;-webkit-text-size-adjust: none;text-align: center;color: #FFFFFF; background-color: #2e8bc0; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; width:auto; max-width:100%; overflow-wrap: break-word; word-break: break-word; word-wrap:break-word; mso-border-alt: none;">
+    <a href="https://miraimail.herokuapp.com/" target="_blank" style="box-sizing: border-box;display: inline-block;font-family:'Lobster Two',cursive;text-decoration: none;-webkit-text-size-adjust: none;text-align: center;color: #FFFFFF; background-color: #2e8bc0; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; width:auto; max-width:100%; overflow-wrap: break-word; word-break: break-word; word-wrap:break-word; mso-border-alt: none;">
       <span style="display:block;padding:10px 20px;line-height:120%;"><span style="font-size: 14px; line-height: 16.8px;">未来Mail</span></span>
     </a>
  
@@ -199,4 +199,5 @@ def send_mail(receiver_mail, _text, subject):  # used to send the email
         # message.attach(part1)
         message.attach(part2)
 
+        print(mail_address, password)
         smtp.send_message(message)
