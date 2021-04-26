@@ -48,7 +48,6 @@ async def get_mail(request: Request, background_tasks: BackgroundTasks,
     airtable_client = AirTable(base_id=_base_id,
                                api_key=_api_key,
                                table_name=_table_name)
-    print(_base_id, _api_key,_table_name)
 
 
     today_date = str(datetime.today()).split(" ")[0]
