@@ -11,8 +11,9 @@ http://miraimail.herokuapp.com/
 
 # Setup
 
-Activate Virtual Env in fastapi-airtable/Scripts/activate.bat.  
-Create an **.env** file in your root directory and Enter the required fields mentioned in env.txt.
+Activate Virtual Env in `fastapi-airtable/Scripts/activate.bat`
+
+Create an **.env** file in your root directory and Enter the fields mentioned in env.txt.
 
 
 **Run**
