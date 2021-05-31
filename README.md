@@ -20,7 +20,7 @@ Create an **.env** file in your root directory and Enter the fields mentioned in
 `
 uvicorn main:app --port 9000 --reload`
 
-Open [](./localhost:9000) in a browser
+Open [localhost:9000](./localhost:9000) in a browser
 
 
 
