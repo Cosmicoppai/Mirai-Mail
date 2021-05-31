@@ -13,9 +13,15 @@ http://miraimail.herokuapp.com/
 
 Activate Virtual Env in fastapi-airtable/Scripts/activate.bat.  
 Create an **.env** file in your root directory and Enter the required fields mentioned in env.txt.
+
+
 **Run**
 `
 uvicorn main:app --port 9000 --reload`
 
-This Project was developed with python 3.9, FastApi and AirTable
+Open localhost:9000 in a browser
+
+
+
+**This Project was developed with python 3.9, FastApi and AirTable**
 
