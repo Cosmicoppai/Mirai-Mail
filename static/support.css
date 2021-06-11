@@ -1,6 +1,6 @@
 
-    <style type="text/css">
-      a { color: #0000ee; text-decoration: underline; }
+ a { color: #0000ee; text-decoration: underline; }
+
 @media only screen and (min-width: 520px) {
   .u-row {
     width: 500px !important;
@@ -66,4 +66,3 @@ a[x-apple-data-detectors='true'] {
   text-decoration: none !important;
 }
 
-</style>
